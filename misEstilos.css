@@ -6,10 +6,19 @@ html, body {
     text-align: center;
     height: 100%;
     margin: 0;
+    overflow-y: scroll; /* Mantén el scroll habilitado */
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
+}
+
+/* Ocultar scroll en navegadores Webkit (Chrome, Safari) */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none; /* Oculta la barra de scroll */
 }
 
 /* Título del juego */
@@ -20,7 +29,7 @@ h1 {
     overflow: hidden;
     white-space: nowrap;
     box-sizing: border-box;
-    position: relative;  /* Para poder centrar con respecto a su contenedor */
+    position: relative;  
     left: 50%;
     transform: translateX(-50%);
     animation: carrusel 5s ease-in-out infinite;
@@ -44,8 +53,8 @@ p {
 
 /* Estilo de los inputs */
 input {
-    width: 90%; /* Cambiado a porcentaje para responsividad */
-    max-width: 220px; /* Tamaño máximo para no exceder */
+    width: 90%;
+    max-width: 220px;
     height: 40px;
     border: none;
     border-radius: 5px;
@@ -59,8 +68,8 @@ input {
 
 /* Estilo de los botones */
 button {
-    width: 90%; /* Cambiado a porcentaje para responsividad */
-    max-width: 200px; /* Tamaño máximo para no exceder */
+    width: 90%;
+    max-width: 200px;
     height: 50px;
     background-color: #ffcc00;
     border: none;
@@ -140,18 +149,27 @@ button:active {
 /* Media Queries para dispositivos pequeños */
 @media (max-width: 600px) {
     h1 {
-        font-size: 2.5rem; /* Ajusta el tamaño del título */
+        font-size: 2.2rem;
+        white-space: normal;
+        animation: none;
     }
 
     h2 {
-        font-size: 1.5rem; /* Ajusta el tamaño del subtítulo */
+        font-size: 1.5rem;
     }
 
     p {
-        font-size: 1rem; /* Ajusta el tamaño del texto */
+        font-size: 1rem;
     }
 
     input, button {
-        width: 90%; /* Asegura que los elementos se ajusten al ancho de la pantalla */
+        width: 100%;
+    }
+
+    #cuentaRegresiva {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+        line-height: 60px;
     }
 }
